@@ -1,0 +1,12 @@
+@mixin set-flexbox-config ($flex-direction: row, $flex-wrap: nowrap, $justify-content: flex-start, $align-items: stretch){
+    display: flex;
+    flex-direction: $flex-direction;
+    flex-wrap: $flex-wrap;
+    justify-content: $justify-content;
+    align-items: $align-items;
+}
+
+@mixin set-backgroundColor-textColor ($background-color: white, $color: black){
+    background-color: $background-color;
+    color: $color;
+}

@@ -1,0 +1,1052 @@
+@charset "utf-8";
+
+/*
+    Author:     Dong Sub (David) Lee
+    Student #:  A00842504
+    Date:       2024/03/07
+    Notes:      BCIT COMP 2132 Project
+    Usage:      main style css
+*/
+
+@import "variables.scss";
+@import "mixins.scss";
+
+/*
+-----------------------------
+HTML ELEMENTS SELECTORS
+-----------------------------
+*/
+
+html {
+    /* default - box model reset */
+    box-sizing: border-box;
+    
+    font-size: 16px;
+    min-width: 300px;
+    max-width: 100%;
+}
+
+/* default - box model reset */
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body{
+    background-color: $color_bg_body;
+    font-family: 'Poppins', verdana, helvetica, arial, sans-serif;
+
+    /* default - remove margin in the body */
+    margin: 0px;
+
+    width: 100%;
+    min-width: 300px;
+}
+
+header {
+    /* take up entire width */
+    width: 100%;
+}
+
+nav {
+    /* take up entire width */
+    width: 100%;
+
+    /* hides NAV by default */
+    display: none;
+}
+
+main {
+    @include set-flexbox-config(column);
+
+    /* default - sticky footer */
+    flex: 1;
+
+    margin: auto;
+    background-color: $color_bg_main;
+
+    min-width: 100px;
+    max-width: 428px;
+}
+
+
+footer {
+    /* take up entire width */
+    width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6{	
+    margin: 0px;
+}
+
+img {
+    width: 100%;
+
+    /* default - image max width */
+    max-width: 100%;
+    height:auto;
+    object-fit: cover;
+}
+
+pre {
+    /* pre-formatted text wrap */
+    white-space: pre-wrap; /*allow word wrap */
+    word-wrap: break-word; /*allow word break*/
+    margin: 0px;
+}
+
+/* wrapper-article pseudoclasses */
+a:link{
+    font-weight: bold;
+    color: $color_primary;
+    text-decoration: none;
+}
+a:visited{
+    font-weight: bold;
+	color: $color_primary;
+    text-decoration: none;
+}
+a:hover{
+	color: $color_primary;
+	text-decoration: underline $color_primary;
+    font-weight: bold;
+}
+a:focus{
+	color: $color_primary;
+	text-decoration: underline $color_primary;
+    font-weight: bold;
+}
+a:active{
+	color: $color_primary;
+	text-decoration: underline $color_primary;
+    font-weight: bold;
+}
+
+
+/*
+-----------------------------
+.class element selectors
+-----------------------------
+*/
+
+/* div banner and banner text */
+.div-banner-image {
+    @include set-backgroundColor-textColor(black, white);
+    min-height: 200px;
+    height: auto;
+    padding: 30px;
+    text-shadow: 0 0 5px #000000;
+
+    /* control display of foreground text content*/
+    @include set-flexbox-config(column, $justify-content: center, $align-items: center);
+}
+
+.div-banner-text {
+    max-width: 320px;
+    padding: 15px;
+}
+
+.div-banner-text h2 {
+    line-height: 1.4;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.div-banner-text h3 {
+    line-height: 1.4;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+/* image div and image text */
+.div-image {
+    @include set-flexbox-config($justify-content: center, $align-items: center);
+    position: relative;
+    max-width: 100%;
+}
+
+.div-image-text {
+    @include set-backgroundColor-textColor(rgba(0, 0, 0, .4), white);
+    text-align: center;
+    padding: 5px;
+
+    /* align element to the center of its parent */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%, -50%);
+}
+
+.div-image-text h2 {
+    font-size: 1.2rem;
+}
+
+.div-image-text h3 {
+    font-size: 0.8rem;
+}
+
+/* div paragraph */
+.div-p {
+    @include set-flexbox-config(column, $justify-content: center);
+    margin: auto;
+    padding: 5px;
+    max-width: 550px;
+    width: 95%;
+}
+
+.div-p p {
+    display: inline-block;
+    font-size: 0.9rem;
+    word-wrap: break-word;
+    text-align: justify;
+    margin: auto;
+    padding: 5px;
+}
+
+.div-p h1 {
+    display: inline-block;
+    word-wrap: break-word;
+    text-align: center;
+    margin: auto;
+    font-size: 1.5rem;
+}
+
+.div-p h2 {
+    display: inline-block;
+    word-wrap: break-word;
+    text-align: center;
+    margin: auto;
+    font-size: 1.4rem;
+}
+
+.div-p h3 {
+    display: inline-block;
+    word-wrap: break-word;
+    text-align: center;
+    margin: auto;
+    font-size: 1.3rem;
+}
+
+.div-p h4 {
+    display: inline-block;
+    word-wrap: break-word;
+    text-align: center;
+    margin: auto;
+    font-size: 1.2rem;
+}
+
+.div-p h5 {
+    display: inline-block;
+    word-wrap: break-word;
+    text-align: center;
+    margin: auto;
+    font-size: 1.1rem;
+}
+
+.div-p h6 {
+    font-size: 1.05rem;
+    margin: auto;
+}
+
+/* div-products */
+.div-products {
+    @include set-flexbox-config(column, wrap);
+    padding: 10px;
+    background-color: #e2ded9;
+}
+
+.div-products section {
+    @include set-flexbox-config($flex-wrap: wrap, $justify-content: space-evenly);
+}
+
+.div-products section article {
+    @include set-flexbox-config(column);
+    padding: 5px;
+    max-width: 500px;
+
+    border-radius: 5px;
+    background-color: #d4cfcb;
+    margin: 5px;
+}
+
+.div-products section img {
+    @include set-flexbox-config();
+    margin: auto;
+    padding: 5px;
+
+    max-width: 100%;
+    height:auto;
+}
+
+.div-products h3 {
+    margin: auto;
+    padding: 5px;
+}
+
+.div-products section p {
+    margin: auto;
+    padding: 5px;
+    text-align: justify;
+}
+
+/* pre-formatted container */
+.div-pre {
+    @include set-flexbox-config();
+    background-color: grey;
+    border: 2px solid grey;
+    border-radius: 10px;
+    margin: auto;
+    padding: 10px;
+    min-width: 0%;
+    max-width: 550px;
+    width: 95%;
+}
+
+/* ul classes */
+.div-ul {
+    @include set-flexbox-config($justify-content: center);
+    margin: auto;
+    max-width: 100%;
+}
+
+.ul-lorem {
+    list-style-type: circle;
+    font-size: 0.9rem;
+}
+
+
+/* ol classes */
+.div-ol {
+    @include set-flexbox-config($justify-content: center);
+    margin: auto;
+}
+
+.ol-lorem {
+    list-style-type: upper-roman;
+    font-size: 0.9rem;
+}
+
+
+/* blockquote classes */
+.div-bq {
+    @include set-flexbox-config();
+    margin: auto;
+    padding: 10px;
+}
+
+.bq-lorem {
+    background-color: orange;
+    margin: auto;
+    border: 2px solid red;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+/* lorem ipsum Image */
+.div-float-lorem {
+    min-width: 0%;
+    max-width: 550px;
+    width: 95%;
+    justify-content: center;
+    margin: auto;
+    text-align: justify;
+    padding: 5px;
+}
+
+.div-float-lorem p {
+    margin: 0px;
+    font-size: 0.9rem;
+    padding: 5px;
+}
+
+.float-article-image-lorem {
+    float: left;
+    padding: 2px;
+    width: 100px;
+    margin: 15px;
+}
+
+
+/*
+-----------------------------
+MESSAGES
+-----------------------------
+*/
+.messageRed::before {
+    content: "\2757  ";
+    color: white;
+}
+
+.messageRed {
+    background-color: $color_bg_messageRed;
+    border: 5px solid $color_border_messageRed;
+    border-radius: 5px;
+}
+
+.messageGreen::before {
+    content: "\2714  ";
+    color: lightgreen;
+}
+
+.messageGreen {
+    background-color: $color_bg_messageGreen;
+    border: 5px solid $color_border_messageGreen;
+    border-radius: 10px;
+    margin: 5px;
+}
+
+.messageYellow::before {
+    content: "\2714  ";
+    color: yellow;
+}
+
+.messageYellow {
+    background-color: $color_bg_messageYellow;
+    border: 5px solid $color_border_messageYellow;
+    border-radius: 10px;
+    color: black;
+    margin: 5px;
+}
+
+
+/*
+-----------------------------
+PROJECT - DICE GAME
+-----------------------------
+*/
+#player-computer {
+    background-color: $color_bg_player_computer;
+}
+
+#player-you {
+    background-color: $color_bg_player_you;
+}
+
+.dice-game-top-banner {
+    @include set-flexbox-config($justify-content: space-evenly, $align-items: center);
+    background-color: lightyellow;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+}
+
+.dice-game {
+    @include set-flexbox-config(column, wrap, center);
+    height: auto;
+}
+
+.dice-game p {
+    margin: 0px;
+}
+
+.dice-game h2 {
+    color: white;
+    width: 100%;
+    text-align: center;
+}
+
+.dice-game h3 {
+    @include set-backgroundColor-textColor(black, white);
+    border: 5px solid black;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.dice-game-players {
+    @include set-flexbox-config(row, wrap, center);
+    height: auto;
+}
+
+.dice-game-player {
+    min-width: 100px;
+    max-width: 800px;
+    border: 5px solid black;
+    border-radius: 5px;
+    height: auto;
+    padding: 10px;
+    margin: 10px;
+}
+
+.dice-game-images {
+    @include set-flexbox-config(row, wrap, center);
+    min-width: 250px;
+}
+
+.dice-game-image {
+    @include set-flexbox-config($flex-direction: column, $align-items: center);
+    align-content: center;
+
+    border: 5px solid black;
+    border-radius: 10px;
+    min-width: 150px;
+    min-height: 180px;
+    margin: 5px;
+}
+
+.dice-game-image h3 {
+    @include set-backgroundColor-textColor(black, white);
+    width: 100%;
+    margin: 0px;
+    text-align: center;
+}
+
+.dice-game-image-container {
+    @include set-flexbox-config($justify-content: center, $align-items: center);
+    height: 100%;
+}
+
+.player-game-score {
+    @include set-flexbox-config($flex-direction: column, $justify-content: center, $align-items: center);
+    height: auto;
+    border-radius: 10px;
+    border: 5px solid black;
+    margin: 5px;
+    text-align: center;
+}
+
+.player-game-score h3 {
+    width: 100%;
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+.player-total-score {
+    @include set-flexbox-config($flex-direction: column, $justify-content: center, $align-items: center);
+    height: auto;
+    border-radius: 10px;
+    border: 5px solid black;
+    margin: 5px;
+    text-align: center;
+}
+
+.player-total-score h3 {
+    width: 100%;
+
+    background-color: black;
+    color: white;
+
+    text-align: center;
+}
+
+.img-dice {
+    max-width: 100px;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+
+    /* this is to fit the entire image */
+    object-fit: contain;
+}
+
+.dice-game-controls {
+    display: flex;
+    justify-content: center;
+}
+
+#button-roll-dice {
+    border-radius: 5px;
+    border:solid 2px white;
+    background-color: green;
+    font-weight:bold;
+    padding:10px;
+    cursor:pointer;
+    transition: transform .05s linear;
+    max-width: 75%;
+    margin: 10px;
+}
+
+#button-roll-dice:hover{
+    transform: scale(1.1);
+}
+
+#button-new-game {
+    border-radius: 5px;
+    border:solid 2px $color_border_button_new_game;
+    background-color: $color_bg_button_new_game;
+    font-weight:bold;
+    padding:10px;
+    cursor:pointer;
+    transition: transform .05s linear;
+    max-width: 75%;
+    margin: 10px;
+}
+
+#button-new-game:hover{
+    transform: scale(1.1);
+}
+
+/* DICE GAME INFO INSTRUCTIONS */
+.section-information {
+    @include set-flexbox-config(column, wrap, $align-items: center);
+}
+
+.div-information {
+    @include set-flexbox-config(column, $align-items: center);
+    padding: 10px;
+    width: 100%;
+    max-width: 600px;
+}
+
+.div-button-information-show-hide {
+    @include set-flexbox-config($justify-content: right);
+    width: 100%;
+}
+
+.button-information-show-hide {
+    font-weight:bold;
+    cursor:pointer;
+    transition: transform .05s linear;
+    border: 1px solid #fff;
+}
+
+.div-information-content {
+    display: none;
+}
+
+
+
+/*
+-----------------------------
+#id element selectors
+-----------------------------
+*/
+#div-wrapper{
+    @include set-flexbox-config(column);
+
+    margin: auto;
+    /*
+	even if there is insufficient content,
+	expand the page height to 
+	at least be as tall as the viewport
+    default - sticky footer
+	*/	
+	min-height:100vh;
+}
+
+/* button classes */
+.button-menu {
+    display: block;
+	background-color: #bbb25e;
+	border: none;
+	font-size: 1.0rem;
+    font-weight: bold;
+	color: black;
+	text-transform: uppercase;
+	cursor: pointer;
+    padding: 10px;
+}
+
+.nav-show {
+    @include set-flexbox-config();
+}
+
+/* Header and Nav IDs */
+#div-header-nav {
+    @include set-flexbox-config(column);
+    width: 100%;
+    /* background-color: #d0ddda; */
+    background-color: lightyellow;
+}
+
+#div-header {
+    @include set-flexbox-config($flex-wrap: wrap, $align-items: center);
+    width: 100%;
+    padding: 2px;
+    
+}
+
+#div-header a {
+    display: block;
+    margin: 3px;
+    padding: 3px;
+    width: 30%;
+    max-width: 200px;
+}
+
+#header-img {
+    @include set-flexbox-config();
+    flex: 1;
+    width: 100%;
+    max-width: 200px;
+    margin: 3px;
+    padding: 0;
+}
+
+#header-heading {
+    font-size: 1.5rem;
+    color: #000000;
+    margin: 1px;
+}
+
+#div-header-heading{
+    @include set-flexbox-config(column, $justify-content: center);
+    margin: 2px;
+}
+
+#header-slogan{
+    font-size: 0.6rem;
+    color: #000000;
+    margin: 2px;
+}
+
+#div-nav{
+    @include set-flexbox-config(column, $justify-content: center, $align-items: center);
+    width: 100%;
+}
+
+
+
+/* ul-nav IDs */
+#ul-nav {
+    @include set-flexbox-config(column, wrap);
+
+    /* default remove list bullets */
+    list-style-type: none;
+
+    /* default remove nav ul padding */
+    padding-left: 0px;
+    margin: 2px;
+    width: 100%;
+}
+
+#ul-nav li a {
+    display: block;
+    text-decoration: none;
+    font-size: 0.7rem;
+    font-weight: bold;
+    text-align: center;
+    margin: 3px;
+    padding: 3px;
+}
+
+/* ul-nav Pseudoclasses */
+#ul-nav a:link{
+    color: black;
+    text-decoration: none;
+}
+#ul-nav a:visited{
+    color: black;
+	text-decoration: none;
+}
+#ul-nav a:hover{
+	text-decoration: underline;
+}
+#ul-nav a:focus{
+	text-decoration: underline;
+}
+#ul-nav a:active{
+	text-decoration: underline;
+}
+
+
+/* Footer IDs */
+#div-footer {
+    @include set-flexbox-config(column);
+    width: 100%;
+    /* background-color: #d0ddda; */
+    background-color: lightyellow;
+}
+
+#div-footer-logo-heading {
+    @include set-flexbox-config($flex-wrap: wrap, $align-items: center);
+}
+
+#footer-logo {
+    width: 100px;
+    margin: 5px;
+    padding: 0;
+}
+
+#div-footer-heading {
+    @include set-flexbox-config(column);
+}
+
+#footer-heading {
+    font-size: 1.5rem;
+    color: #000000;
+    margin: 1px;
+}
+
+#footer-slogan {
+    font-size: 0.6rem;
+    color: #000000;
+    margin: 2px;
+}
+
+#div-footer-nav {
+    @include set-flexbox-config(column, wrap, center);
+    width: 100%;
+}
+
+#div-footer-nav a {
+    @include set-flexbox-config($justify-content: center);
+    padding: 10px;
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+
+#div-footer-nav a:link{
+    color: black;
+    text-decoration: none;
+}
+
+#div-footer-nav a:visited{
+    color: black;
+	text-decoration: none;
+}
+
+#div-footer-nav a:hover{
+	text-decoration: underline;
+}
+
+#div-footer-nav a:focus{
+	text-decoration: underline;
+}
+
+#div-footer-nav a:active{
+	text-decoration: underline;
+}
+
+#div-footer-bar {
+    @include set-flexbox-config(column);
+    /* background-color: #abccc4; */
+    background-color: yellow;
+}
+
+#div-footer-bar hr {
+    margin: 0px;
+    width: 100%;
+}
+
+#div-footer-bar h5 {
+    padding: 2px;
+    margin: 0px;
+}
+
+#div-footer-bar p {
+    padding: 2px;
+    margin: 2px;
+    font-size: 0.7rem;
+}
+
+
+/*
+-----------------------------
+pop-up
+-----------------------------
+*/
+#pop-up-background {
+    /* remove this popup from normal page flow */
+    position:fixed;
+    top:0px;
+    left:0px;    
+	/* fill the entire viewport */
+    width:100vw;
+    height:100vh;    
+	/* ensure it is over-top all other page elements */
+	z-index:1000;
+	/* transparency allows user to see content behind */
+	background-color: rgba(45, 66, 66, .8);    
+	font-size:.85em;
+
+    display: none;
+}
+
+
+#pop-up {
+    @include set-flexbox-config();
+}
+
+#pop-up div{
+	/* vertically/horizontally center this element*/
+	position:absolute;
+	left:50%;
+	top:50%;
+	transform:translate(-50%, -50%);
+
+	max-width:400px;
+	min-width:300px;
+	padding:10px;
+	border-radius:10px;
+    border: solid 5px black;
+	/* background-color: #540b0e; */
+	color:white;
+
+    /* ensure it is over-top all other page elements */
+	z-index:1000;
+}
+
+/* the close X button*/
+#close-pop-up{
+	background-color: white;
+	color:black;
+	border-radius: 50%;
+	font-weight: bold;
+	border:solid 3px black;
+
+	cursor:pointer;
+    
+	/*
+	locate this X button in the 
+	top right corner of the popup
+	*/
+	position:absolute;
+	top:-10px;
+	right:-10px;
+    padding: 2px;
+
+    text-align: center;
+
+    height: 30px;
+    width: 30px;
+}
+
+#close-pop-up:hover, 
+#close-pop-up:focus, 
+#close-pop-up:active{
+    @include set-backgroundColor-textColor(white, $color_primary);
+	transform: scale(1.3);
+}
+
+
+
+/*
+-----------------------------
+@media queries
+-----------------------------
+*/
+
+/* media size larger than 428px and less than 768px */
+@media (min-width: 428px) {
+    main {
+        @include set-flexbox-config(column);
+        /* sticky footer */
+        flex: 1;
+    
+        margin: auto;
+        background-color: #e9e5e1;
+
+        min-width: 428px;
+        max-width: 768px;
+    }
+
+    nav {
+        /* take up entire width */
+        width: 100%;
+    
+        /* hides NAV by default */
+        display: flex;
+    }
+
+    .button-menu {
+        display: none;
+    }
+
+    .div-image-text h2 {
+        font-size: 1.0rem;
+        margin: 10px;
+    }
+    
+    .div-image-text h3 {
+        font-size: 0.8rem;
+        margin: 7px;
+    }
+
+    /* assignment classes */
+    .div-product-pictures {
+        max-width: 50%;
+    }
+    
+    .div-products-form {
+        @include set-flexbox-config($justify-content: center);
+        padding: 5px;
+    }
+
+    #ul-nav {
+        @include set-flexbox-config($flex-wrap: wrap);
+        list-style-type: none;
+        padding-left: 0px;
+        margin: 2px;
+        width: 100%;
+    }
+
+    #div-footer-nav {
+        @include set-flexbox-config($flex-wrap: wrap);
+        width: 100%;
+    }
+
+    #div-footer-nav a {
+        @include set-flexbox-config($justify-content: center);
+        padding: 10px;
+        font-size: 0.7rem;
+        font-weight: bold;
+    }
+}
+
+
+/* media size larger than 768px */
+@media (min-width: 1920px){
+    main {
+        @include set-flexbox-config(column);
+        /* sticky footer */
+        flex: 1;
+    
+        margin: auto;
+        background-color: #e9e5e1;
+
+        min-width: 1920px;
+        max-width: 1920px;
+    }
+
+    nav {
+        /* take up entire width */
+        width: 100%;
+    
+        /* hides NAV by default */
+        display: flex;
+    }
+
+    .button-menu {
+        display: none;
+    }
+
+    .div-image-text h2 {
+        font-size: 2.1rem;
+        margin: 10px;
+    }
+    
+    .div-image-text h3 {
+        font-size: 1.2rem;
+        margin: 7px;
+    }
+
+    /* assignment classes */
+    .div-product-pictures {
+        max-width: 50%;
+    }
+    
+    .div-products-form {
+        @include set-flexbox-config();
+        padding: 5px;
+    }
+
+    #ul-nav {
+        @include set-flexbox-config($flex-wrap: wrap);
+        list-style-type: none;
+        padding-left: 0px;
+        margin: 2px;
+        width: 100%;
+    }
+
+    #div-footer-nav {
+        @include set-flexbox-config($flex-wrap: wrap);
+        width: 100%;
+    }
+
+    #div-footer-nav a {
+        @include set-flexbox-config($justify-content: center);
+        padding: 10px;
+        font-size: 0.7rem;
+        font-weight: bold;
+    }
+}

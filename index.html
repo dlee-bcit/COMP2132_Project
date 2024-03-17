@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <!--
+        Author: Dong Sub (David) Lee
+        Student #: A00842504
+        Date: 2024/03/07
+        Notes: BCIT COMP 2132 Project
+    -->
+
+    <head>
+        <title>BCIT COMP2132 Project | Home</title>
+
+        <!-- Character Set and Viewport -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" >
+        
+        <!-- CSS Style Sheets -->
+        <link rel="stylesheet" href="css/style.css" >
+
+        <!--
+            Google Fonts
+        -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+        <!-- Javascript -->
+        <script src="scripts/jquery-3.7.1.min.js" defer></script>
+        <script src="scripts/dice-game.js" defer></script>
+        <script src="scripts/dice-game-driver.js" defer></script>
+
+        <!-- button menu script -->
+        <script src="scripts/menu.js" defer></script>
+
+    </head>
+
+    <body>
+        <div id="div-wrapper">
+            <div id="div-header-nav">
+                <header>
+                    <div id="div-header">
+                        <a href="index.html"><img id="header-img" src="images/logo-bravo-1.png" alt="header-bravo-logo"></a>
+
+                        <div id="div-header-heading">
+                            <h1 id="header-heading">COMP2132</h1>
+                            <h2 id="header-slogan">DICE GAME</h2>
+                        </div>
+                    </div>
+                </header>
+
+                <button class="button-menu">&equiv;</button>
+                <nav>
+                    <div id="div-nav">
+                        <ul id="ul-nav">
+                            <li><a href="index.html">Home</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+
+            <main>
+                <div class="div-banner-image">
+                    <div class="div-banner-text">
+                        <h2>COMP2132</h2>
+                        <h3>DICE GAME</h3>
+                    </div>
+                </div>
+
+                <div class="dice-game-top-banner">
+                    <img class="img-dice" src="images-dice/dice-1.png" alt="images-dice/dice-1.png">
+                    <img class="img-dice" src="images-dice/dice-2.png" alt="images-dice/dice-2.png">
+                    <img class="img-dice" src="images-dice/dice-3.png" alt="images-dice/dice-3.png">
+                    <h1>DICE GAME</h1>
+                    <img class="img-dice" src="images-dice/dice-4.png" alt="images-dice/dice-4.png">
+                    <img class="img-dice" src="images-dice/dice-5.png" alt="images-dice/dice-5.png">
+                    <img class="img-dice" src="images-dice/dice-6.png" alt="images-dice/dice-6.png">
+                </div>
+
+                <div class="div-products">
+
+                    <div class="dice-game">
+                        <div class="dice-game-players">
+                            <div class="dice-game-player" id="player-computer">
+                                <h2>COMPUTER</h2>
+                                <div class="dice-game-images">
+                                    <h3>COMPUTER DICE</h3>
+                                    <div class="dice-game-image">
+                                        <h3>DICE #1</h3>
+                                        <div id="player-computer-dice-image-one" class="dice-game-image-container"></div>
+                                    </div>
+                                    <div class="dice-game-image">
+                                        <h3>DICE #2</h3>
+                                        <div id="player-computer-dice-image-two" class="dice-game-image-container"></div>
+                                    </div>
+                                </div>
+
+                                <div class="player-game-score">
+                                    <h3>Game Score:</h3>
+                                    <div id="player-computer-dice-score"><p>0</p></div>
+                                </div>
+                                
+                                <div class="player-total-score">
+                                    <h3>Total Score:</h3>
+                                    <div id="player-computer-total-score"><p>0</p></div>
+                                </div>
+                                
+                                <div id="player-computer-dice-images"></div>
+                            </div>
+    
+                            <div class="dice-game-player" id="player-you">
+                                <h2>YOU</h2>
+                                <div class="dice-game-images">
+                                    <h3>YOUR DICE</h3>
+                                    <div class="dice-game-image">
+                                        <h3>DICE #1</h3>
+                                        <div id="player-you-dice-image-one" class="dice-game-image-container"></div>
+                                    </div>
+                                    
+                                    <div class="dice-game-image">
+                                        <h3>DICE #2</h3>
+                                        <div id="player-you-dice-image-two" class="dice-game-image-container"></div>
+                                    </div>
+                                    
+                                </div>
+                                
+                                <div class="player-game-score">
+                                    <h3>Game Score:</h3>
+                                    <div id="player-you-dice-score"><p>0</p></div>
+                                </div>
+
+                                <div class="player-total-score">
+                                    <h3>Total Score:</h3>
+                                    <div id="player-you-total-score"><p>0</p></div>
+                                </div>
+                                
+                                <div id="player-you-dice-images"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="dice-game-controls">
+                            <button id="button-roll-dice">Roll Dice</button>
+                            <button id="button-new-game">New Game</button>
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <section class="section-information">
+                    <div class="div-information" id="dice-game-instructions">
+                        <h2>Instructions</h2>
+                        <div class="div-button-information-show-hide">
+                            <button class="button-information-show-hide">[Show]</button>
+                        </div>
+                        <div class="div-information-content">
+                            <ul>
+                                <li>To start, click the "Roll Dice" button</li>
+                                <li>To advance to the next round, click the "Roll Dice" button again</li>
+                                <li>After 3 rounds, the game is over and the final score is calculated</li>
+                                <li>If you want to play again, click the "New Game" button or refresh the page</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="div-information" id="dice-game-rules">
+                        <h2>Rules</h2>
+                        <div class="div-button-information-show-hide">
+                            <button class="button-information-show-hide">[Show]</button>
+                        </div>
+                        <div class="div-information-content">
+                            <ul>
+                                <li>Each round, you and the computer both roll a pair of dice</li>
+                                <li>Your score for that round will be based on the sum of the dice</li>
+                                <li>If you roll doubles (e.g.a 2 and a 2), then your score is the sum of the dice and multiplied by 2</li>
+                                <li>Rolling a 1 will give you a score of 0 for that round</li>
+                                <li>The player who has the most points at the end of three rounds is the winner</li>
+                            </ul>
+                        </div>
+                        
+                    </div>
+                </section>
+
+            </main>
+
+            <footer>
+                <div id="div-footer">
+                    <div id="div-footer-logo-heading">
+                        <a href="index.html"><img id="footer-logo" src="images/logo-bravo-1.png" alt="footer-logo"></a>
+                        <div id="div-footer-heading">
+                            <h1 id="footer-heading">COMP2132</h1>
+                            <h2 id="footer-slogan">DICE GAME</h2>
+                        </div>
+                    </div>
+
+                    <div id="div-footer-nav">
+                        <a href="index.html">Home</a>
+                    </div>
+
+                    <div id="div-footer-bar">
+                        <h5>DICE GAME</h5>
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+        <section id="pop-up-background">
+            <div id="pop-up">
+                <div id="div-pop-up">
+                    <label for="close-pop-up-checkbox" id="close-pop-up">&#x2715;</label>
+                    <input type="checkbox" id="close-pop-up-checkbox" style="display:none">
+                    <h2>GAME OVER</h2>
+                    <h3>WINNER IS:</h3>
+                    <p id="winner-name"></p>
+                </div>
+            </div>
+        </section>
+    </body>
+
+</html>
