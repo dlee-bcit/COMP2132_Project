@@ -36,14 +36,17 @@ class Die
     {
         this.value = generateDieValue();
     }
+    
     roll()
     {
         this.value = generateDieValue();
     }
+    
     getValue()
     {
         return this.value;
     }
+    
     describeSelf()
     {
         const dieValue = `${this.value}`;
@@ -143,13 +146,14 @@ class Player
 
     describeSelf()
     {
-        const dieOneValue = this.dice[0].describeSelf();
-        const dieTwoValue = this.dice[1].describeSelf();
+        const dieOneValue = this.dice[DIEFIRST].describeSelf();
+        const dieTwoValue = this.dice[DIESECOND].describeSelf();
 
         const describeSelfValues = `${this.name} - ${dieOneValue}:${dieTwoValue} - ${this.score}`;
         return describeSelfValues;
     }
 }
+
 
 /* FUNCTION: GET DIE IMAGE FROM PLAYER WITH THE DICE INDEX */
 function getDieImageFromPlayerWithIndex(player, diceIndex)
@@ -178,6 +182,7 @@ function getDieImageFromPlayerWithIndex(player, diceIndex)
 
     return html;
 }
+
 
 /* FUNCTION: GET DICE IMAGES FROM PLAYER */
 function getDiceImagesFromPlayer(player)

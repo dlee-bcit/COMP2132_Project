@@ -164,6 +164,7 @@ let rollDiceClickCounter = 0;
     // close popup on X button click
     function closePopup(e)
     {
+        //close popup
         $popupBackground.toggle();
     };
 }
@@ -178,10 +179,10 @@ let rollDiceClickCounter = 0;
         // Select div-information-content
         const $divInformationContent = $(this).closest(".div-button-information-show-hide").next();
 
-        // Slide toggle
+        // Slide toggle div-information-content
         $divInformationContent.slideToggle(750);
 
-        // Alternate between "Show" and "Hide"
+        // Alternate button text between "Show" and "Hide"
         if($(this).text() == "[Show]")
         {
             $(this).text("[Hide]");
