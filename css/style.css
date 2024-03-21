@@ -698,7 +698,7 @@ PROJECT - DICE GAME
 /* button classes */
 .button-menu {
   display: block;
-  background-color: #bbb25e;
+  background-color: rgb(228, 228, 140);
   border: none;
   font-size: 1rem;
   font-weight: bold;
@@ -724,7 +724,6 @@ PROJECT - DICE GAME
   justify-content: flex-start;
   align-items: stretch;
   width: 100%;
-  /* background-color: #d0ddda; */
   background-color: lightyellow;
 }
 
@@ -845,7 +844,6 @@ PROJECT - DICE GAME
   justify-content: flex-start;
   align-items: stretch;
   width: 100%;
-  /* background-color: #d0ddda; */
   background-color: lightyellow;
 }
 
@@ -931,8 +929,7 @@ PROJECT - DICE GAME
   flex-wrap: nowrap;
   justify-content: flex-start;
   align-items: stretch;
-  /* background-color: #abccc4; */
-  background-color: yellow;
+  background-color: rgb(228, 228, 140);
 }
 
 #div-footer-bar hr {
@@ -991,7 +988,6 @@ pop-up
   padding: 10px;
   border-radius: 10px;
   border: solid 5px black;
-  /* background-color: #540b0e; */
   color: white;
   /* ensure it is over-top all other page elements */
   z-index: 1000;
